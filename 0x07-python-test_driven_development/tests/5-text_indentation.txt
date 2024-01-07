@@ -1,0 +1,37 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+>>> text = "Bonjour. Comment tu t'appelles ? Côme et toi ? Mon prénom est : Alma."
+>>> text_indentation(text)
+Bonjour.
+<BLANKLINE>
+Comment tu t'appelles ?
+<BLANKLINE>
+Côme et toi ?
+<BLANKLINE>
+Mon prénom est :
+<BLANKLINE>
+Alma.
+<BLANKLINE>
+
+>>> text_indentation("text")
+text
+
+>>> text_indentation("1234567")
+1234567
+
+>>> text_indentation(1234567)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation(text, text)
+Traceback (most recent call last):
+TypeError: text_indentation() takes 1 positional argument but 2 were given
+
+>>> text_indentation()
+Traceback (most recent call last):
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+>>> text_indentation("     text")
+text
+
+>>> text_indentation("     ")
