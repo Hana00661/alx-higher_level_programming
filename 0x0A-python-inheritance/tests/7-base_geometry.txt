@@ -1,0 +1,67 @@
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+>>> base = BaseGeometry()
+
+>>> base.integer_validator("my", 12)
+
+>>> base.integer_validator("width")
+Traceback (most recent call last):
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+>>> base.integer_validator()
+Traceback (most recent call last):
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+>>> base.integer_validator("width", 0)
+Traceback (most recent call last):
+ValueError: width must be greater than 0
+
+>>> base.integer_validator("width", -5)
+Traceback (most recent call last):
+ValueError: width must be greater than 0
+
+>>> base.integer_validator("width", 5.5)
+Traceback (most recent call last):
+TypeError: width must be an integer
+
+>>> base.integer_validator("width", (1, 2, 3))
+Traceback (most recent call last):
+TypeError: width must be an integer
+
+>>> base.integer_validator("width", [1, 2, 3])
+Traceback (most recent call last):
+TypeError: width must be an integer
+
+>>> base.integer_validator("width", {1, 2, 3})
+Traceback (most recent call last):
+TypeError: width must be an integer
+
+>>> base.integer_validator("width", True)
+Traceback (most recent call last):
+TypeError: width must be an integer
+
+>>> base.integer_validator("width", None)
+Traceback (most recent call last):
+TypeError: width must be an integer
+
+>>> base.integer_validator("width", float("inf"))
+Traceback (most recent call last):
+TypeError: width must be an integer
+
+>>> base.integer_validator("width", float("NaN"))
+Traceback (most recent call last):
+TypeError: width must be an integer
+
+>>> base.integer_validator("width", "number")
+Traceback (most recent call last):
+TypeError: width must be an integer
+
+
+>>> base.integer_validator("width", 0, 1)
+Traceback (most recent call last):
+TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+
+>>> base.area()
+Traceback (most recent call last):
+Exception: area() is not implemented
