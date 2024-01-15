@@ -9,6 +9,7 @@ class Square(Rectangle):
     """the Square Class"""
 
     def __init__(self, size, x=0, y=0, id=None):
+        """ init """
         self.validate_h_w("width", size)
         super().__init__(size, size, x, y, id)
         self.__size = size
@@ -19,13 +20,16 @@ class Square(Rectangle):
 
     @size.setter
     def size(self, value):
+        """ setter """
         self.validate_h_w("width", value)
         self.__size = value
 
     def __str__(self):
+        """ function """
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.size}"
 
     def update(self, *args, **kwargs):
+        """  function """
         if args and len(args) > 0:
             if len(args) > 0:
                 self.id = args[0]
@@ -46,4 +50,5 @@ class Square(Rectangle):
                 self.y = kwargs['y']
 
     def to_dictionary(self):
+        """ function """
         return {'id': self.id, 'x': self.x, 'size': self.__size, 'y': self.y}

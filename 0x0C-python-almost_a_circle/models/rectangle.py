@@ -22,59 +22,73 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """function """
         return self.__width
 
     @width.setter
     def width(self, value):
+        """ function """
         self.validate_h_w("width", value)
         self.__width = value
 
     @property
     def height(self):
+        """ function """
         return self.__height
 
     @height.setter
     def height(self, value):
+        """ function """
         self.validate_h_w("height", value)
         self.__height = value
 
     @property
     def x(self):
+        """ function """
         return self.__x
 
     @x.setter
     def x(self, value):
+        """ setter """
         self.validate_x_y("x", value)
         self.__x = value
 
     @property
     def y(self):
+        """ property function """
         return self.__y
 
     @y.setter
     def y(self, value):
+        """ setter function """
         self.validate_x_y("y", value)
         self.__y = value
 
     def validate_h_w(self, name, value):
+
+        """ function """
         if not isinstance(value, int):
             raise TypeError(f"{name} must be an integer")
         if value <= 0:
             raise ValueError(f"{name} must be > 0")
 
     def validate_x_y(self, name, value):
+        """ function """
         if not isinstance(value, int):
             raise TypeError(f"{name} must be an integer")
         if value < 0:
             raise ValueError(f"{name} must be >= 0")
 
     def area(self):
+        """ function """
         return self.__height * self.__width
 
     def __str__(self):
+        """ function """
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
 
     def display(self):
+        """ function """
         for y in range(self.__y):
             print("")
         for h in range(self.__height):
@@ -84,6 +98,7 @@ class Rectangle(Base):
             print("")
 
     def update(self, *args, **kwargs):
+        """function """
         if args and len(args) > 0:
             if len(args) > 0:
                 self.id = args[0]
@@ -108,4 +123,5 @@ class Rectangle(Base):
                 self.__y = kwargs['y']
 
     def to_dictionary(self):
+        """function !!! """
         return {'x': self.__x, 'y': self.__y, 'id': self.id, 'height': self.__height, 'width': self.__width}

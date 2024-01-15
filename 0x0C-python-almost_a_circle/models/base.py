@@ -17,10 +17,9 @@ class Base:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
-
     @staticmethod
     def to_json_string(list_dictionaries):
-        """function to returns the JSON string representation of list_dictionaries"""
+        """function to returns the JSON string to list_dictionaries"""
         return "[]" if list_dictionaries is None \
             else json.dumps(list_dictionaries)
 
@@ -38,7 +37,7 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """function to returns the list of the JSON string 
+        """function to returns the list of the JSON string
         """
         if json_string is None or len(json_string) == 0:
             return []
@@ -56,6 +55,7 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
+        """function """
         filename = f"{cls.__name__}.json"
         if os.path.exists(filename) is False:
             return []
@@ -64,4 +64,3 @@ class Base:
             for i in range(len(liste)):
                 liste[i] = cls.create(**liste[i])
         return liste
-
