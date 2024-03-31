@@ -4,9 +4,11 @@
 
 """script that fetches https://intranet.hbtn.io/status"""
 
+import urllib.request
+
+
 if __name__ == "__main__":
    
-    if __name__ == "__main__":
     url = "https://alx-intranet.hbtn.io/status"
     try:
         with urllib.request.urlopen(url) as response:
