@@ -1,9 +1,5 @@
 #!/usr/bin/python3
-
-# sourcery skip: use-fstring-for-formatting
-
 """script that fetches https://intranet.hbtn.io/status"""
-
 import urllib.request
 
 
