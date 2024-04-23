@@ -1,20 +1,18 @@
 #!/usr/bin/node
 
-const axios = require('axios');
-axios.get(process.argv[2])
-  .then(res => {
-    let num = 0;
-    const numFilms = res.data.results.length;
-    for (let i = 0; i < numFilms; i++) {
-      const numChar = res.data.results[i].characters.length;
-      for (let j = 0; j < numChar; j++) {
-        const str = res.data.results[i].characters[j];
-        if (str.includes('18')) {
-          num++;
-        }
-      }
-    } console.log(num);
-  })
-  .catch(err => {
-    console.log(err);
-  });
+const request = require('request');
+
+const URL = process.argv[2];
+
+request(URL, (error, response, body) => {
+  if (error) {
+    console.log(error);
+  } else if (body) {
+    const json = JSON.parse(body);
+    
+    const charFilms = json.results.filter(
+      x => x.characters.find(y => y.match(/\/people\/18\/?$/))
+    );
+    console.log(charFilms.length);
+  }
+});
